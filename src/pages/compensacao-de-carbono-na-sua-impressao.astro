@@ -1,0 +1,137 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Compensação de Carbono na sua impressão',
+  description:
+    'Torne sua impressão sustentável: a Interativa compensa o carbono do seu parque e apoia suas metas de ESG. Conheça o programa de impressão neutra.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="ESG e sustentabilidade"
+    actions={[
+      { variant: 'primary', text: 'Quero saber mais', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">Compensação de carbono <span class="text-primary">na sua impressão</span></Fragment>
+    <Fragment slot="subtitle">
+      Imprimir tem um custo ambiental, e ele pode ser medido e compensado. A Interativa ajuda a sua empresa a
+      neutralizar as emissões da impressão e a comprovar esse compromisso, algo que já pesa em licitações e compras
+      corporativas.
+    </Fragment>
+  </Hero>
+
+  <Content
+    tagline="ESG e sustentabilidade"
+    title="Do consumo à neutralização"
+    image={{ src: '~/assets/images/blog/Manutencao-de-impressoras-em-curitiba-18.jpg', alt: 'Impressora em uso' }}
+  >
+    <Fragment slot="content">
+      <p>
+        A Interativa mede a pegada de carbono associada ao seu parque de impressão e converte esse número em ações
+        concretas de compensação, com transparência e documentação.
+      </p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <Steps2
+    id="como-funciona"
+    tagline="Impressão carbono neutro"
+    title="Como funciona"
+    items={[
+      {
+        title: 'Medição',
+        description: 'Medição da pegada de carbono do parque, a partir do volume impresso.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Compensação',
+        description: 'Compensação das emissões por meio de créditos de carbono ou projetos ambientais reconhecidos.',
+        icon: 'tabler:leaf',
+      },
+      {
+        title: 'Logística reversa',
+        description: 'Logística reversa de toners e peças, com descarte correto.',
+        icon: 'tabler:recycle',
+      },
+      {
+        title: 'Relatório',
+        description: 'Relatório periódico de emissões compensadas.',
+        icon: 'tabler:file-report',
+      },
+      {
+        title: 'Certificado',
+        description: 'Certificado de compensação para uso institucional e em licitações.',
+        icon: 'tabler:file-certificate',
+      },
+    ]}
+  />
+
+  <Features
+    id="por-que-importa"
+    title="Por que isso importa para a sua empresa"
+    columns={3}
+    items={[
+      {
+        title: 'Critérios ESG já aparecem em RFPs e licitações públicas e privadas',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Comprova responsabilidade ambiental para clientes e parceiros',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Reduz o impacto ambiental sem exigir mudança de rotina da equipe',
+        icon: 'tabler:plant-2',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Features>
+
+  <PropostaForm whatsapp="Olá! Quero saber mais sobre a compensação de carbono na impressão." />
+
+  <FAQs
+    id="duvidas"
+    title="Dúvidas frequentes"
+    schema
+    items={[
+      {
+        title: 'Recebo um certificado?',
+        description:
+          'Sim. A empresa recebe um documento de compensação que pode ser apresentado em processos de compra e licitação.',
+      },
+      {
+        title: 'Preciso trocar de equipamento?',
+        description:
+          'Não. A compensação de carbono pode ser contratada junto com locação, outsourcing ou gestão de impressão.',
+      },
+    ]}
+  />
+
+  <BlogLatestPosts title="Blog" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA
+    title="Impressão carbono neutro"
+    subtitle="Leve responsabilidade ambiental comprovada para a sua operação."
+    buttonText="Quero saber mais"
+  />
+</Layout>

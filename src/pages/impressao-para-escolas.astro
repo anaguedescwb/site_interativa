@@ -1,0 +1,98 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Note from '~/components/widgets/Note.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Impressão para Escolas',
+  description:
+    'Impressão para escolas e faculdades: provas, apostilas e alto volume com controle de cotas por professor e turma. Reduza custos com a Interativa.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Impressão para Escolas"
+    actions={[
+      { variant: 'primary', text: 'Quero terceirizar', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">
+      Soluções rápidas e precisas para suas <span class="text-primary">necessidades de impressão</span>
+    </Fragment>
+  </Hero>
+
+  <Steps
+    id="solucoes"
+    tagline="Método Interativa"
+    title="Do diagnóstico ao controle total, em quatro etapas"
+    subtitle="Não se trata de venda de equipamento, e sim de um processo consultivo."
+    image={{ src: '~/assets/images/blog/Manutencao-de-impressoras-em-curitiba-18.jpg', alt: 'Impressora em escola' }}
+    items={[
+      {
+        title: 'Diagnóstico',
+        description: 'Mapeamos o parque, o volume e os custos atuais, sem compromisso.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Projeto sob medida',
+        description: 'Desenhamos a solução de equipamentos e software adequada à sua rotina.',
+        icon: 'tabler:ruler-2',
+      },
+      {
+        title: 'Implantação',
+        description: 'Instalação, integração à rede e treinamento da equipe.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Gestão contínua',
+        description: 'Reposição proativa de suprimentos, manutenção e relatório de uso mensal.',
+        icon: 'tabler:report-analytics',
+      },
+    ]}
+  />
+
+  <Content
+    tagline="Controle e governança"
+    title="O que a empresa ganha"
+    subtitle="Com o outsourcing, a impressão deixa de ser um custo invisível e passa a ser um processo governado:"
+    columns={2}
+    items={[
+      { title: 'Custo por página previsível, sem surpresas no orçamento' },
+      { title: 'Reposição de toner antes da falta, com estoque monitorado' },
+      { title: 'Manutenção e substituição de equipamento sob a responsabilidade da Interativa' },
+      { title: 'Relatórios que apoiam a governança e a tomada de decisão' },
+    ]}
+  >
+    <Fragment slot="content">
+      <p>
+        <strong>Complementos:</strong> combine com a
+        <a href="/gestao-de-impressao" class="text-primary underline">Gestão de Impressão</a> e a
+        <a href="/compensacao-de-carbono-na-sua-impressao" class="text-primary underline">Compensação de Carbono</a>
+        para governança e ESG completos.
+      </p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <Note
+    title="Para quem é:"
+    description="Empresas de médio e grande porte que precisam de governança, previsibilidade e um fornecedor próximo e ágil."
+  />
+
+  <PropostaForm whatsapp="Olá! Quero uma proposta de impressão para escola." />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA />
+</Layout>

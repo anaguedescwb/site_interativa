@@ -24,6 +24,11 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
+  redirects: {
+    '/contato-2': '/contato',
+    '/locacao-de-impressora-em-curitiba': '/',
+  },
+
   output: 'static',
 
   // Prefetch links as they enter the viewport for snappier navigations

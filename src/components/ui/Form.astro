@@ -2,14 +2,14 @@
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
-const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
+const { inputs, textarea, disclaimer, button = 'Contact us', description = '', whatsapp } = Astro.props;
 ---
 
-<form>
+<form data-whatsapp-form={whatsapp}>
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false, options }) =>
           name && (
             <div class="mb-6">
               {label && (
@@ -17,14 +17,31 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                   {label}
                 </label>
               )}
-              <input
-                type={type}
-                name={name}
-                id={name}
-                autocomplete={autocomplete}
-                placeholder={placeholder}
-                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
-              />
+              {options ? (
+                <select
+                  name={name}
+                  id={name}
+                  required={required}
+                  data-label={label}
+                  class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                >
+                  <option value="">Selecione</option>
+                  {options.map((option) => (
+                    <option value={option}>{option}</option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  type={type}
+                  name={name}
+                  id={name}
+                  autocomplete={autocomplete}
+                  placeholder={placeholder}
+                  required={required}
+                  data-label={label}
+                  class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                />
+              )}
             </div>
           )
       )
@@ -38,6 +55,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
         </label>
         <textarea
           id="textarea"
+          data-label={textarea.label}
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}

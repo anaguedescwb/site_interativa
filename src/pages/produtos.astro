@@ -1,0 +1,127 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Image from '~/components/common/Image.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { Icon } from 'astro-icon/components';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Produtos',
+  description:
+    'Conheça as impressoras e multifuncionais Xerox, HP e Canon disponíveis na Interativa. Fale conosco pelo WhatsApp e tire suas dúvidas sobre cada modelo.',
+};
+
+const products = [
+  {
+    name: 'Impressora Canon imageRUNNER 1643iF',
+    image: '~/assets/images/produtos/Impressora-Canon-imageRUNNER-1643iF-2.png',
+    tags: ['A4', 'Laser'],
+  },
+  {
+    name: 'Impressora HP E50145',
+    image: '~/assets/images/produtos/Impressora-Hp-E50145-2.webp',
+    tags: ['A4', 'HP', 'Laser'],
+  },
+  {
+    name: 'Impressora HP E52645',
+    image: '~/assets/images/produtos/Impressora-Hp-E52645.png',
+    tags: ['A4', 'HP', 'Laser'],
+  },
+  {
+    name: 'Impressora Xerox Phaser 7800',
+    image: '~/assets/images/produtos/Impressora-Xerox-Phaser-7800.png',
+    tags: ['A3', 'Toner', 'Xerox'],
+  },
+  {
+    name: 'Impressora Xerox Versalink C400',
+    image: '~/assets/images/produtos/Impressora-Xerox-Versalink-C400.png',
+    tags: ['A3', 'Toner', 'Xerox'],
+  },
+  {
+    name: 'Impressora Xerox Versalink C405',
+    image: '~/assets/images/produtos/Impressora-Xerox-Versalink-C405.png',
+    tags: ['A3', 'Toner', 'Xerox'],
+  },
+  {
+    name: 'Impressora Xerox Versalink C505',
+    // O site original usa a mesma foto da C405 para este modelo.
+    image: '~/assets/images/produtos/Impressora-Xerox-Versalink-C405.png',
+    tags: ['A3', 'Toner', 'Xerox'],
+  },
+  {
+    name: 'Impressora Xerox Versalink C8135',
+    image: '~/assets/images/produtos/Impressora-Xerox-Versalink-C8135.png',
+    tags: ['A3', 'Toner', 'Xerox'],
+  },
+  {
+    name: 'Impressora Xerox Versalink C9000',
+    image: '~/assets/images/produtos/Impressora-Xerox-Versalink-C9000.png',
+    tags: ['A3', 'Toner', 'Xerox'],
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Produtos"
+    actions={[
+      { variant: 'primary', text: 'Ver produtos', href: '#produtos' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">Impressoras e <span class="text-primary">multifuncionais</span></Fragment>
+    <Fragment slot="subtitle">
+      Conheça os modelos Xerox, HP e Canon disponíveis e fale com a Interativa sobre o equipamento ideal.
+    </Fragment>
+  </Hero>
+
+  <WidgetWrapper id="produtos" containerClass="max-w-7xl mx-auto">
+    <Headline title="Nossos produtos" subtitle={`Mostrando todos os ${products.length} resultados`} />
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        products.map(({ name, image, tags }) => (
+          <div class="flex flex-col rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-[0_4px_30px_rgba(0,0,0,0.1)] p-6">
+            <div class="flex items-center justify-center aspect-square mb-6 bg-white rounded-md overflow-hidden">
+              <Image
+                src={image}
+                alt={name}
+                width={400}
+                height={400}
+                layout="constrained"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h2 class="text-xl font-bold">{name}</h2>
+            <ul class="flex flex-wrap gap-2 mt-3">
+              {tags.map((tag) => (
+                <li class="text-xs font-semibold uppercase tracking-wide px-2 py-1 rounded bg-primary/10 text-primary">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+            <div class="mt-auto pt-6">
+              <a
+                class="btn btn-primary w-full"
+                href={`${WHATSAPP_URL}?text=${encodeURIComponent('Olá! Tenho interesse na ' + name)}`}
+                target="_blank"
+                rel="noopener"
+              >
+                <Icon name="tabler:brand-whatsapp" class="w-5 h-5 mr-2" />
+                Quero saber mais
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </WidgetWrapper>
+
+  <PropostaForm whatsapp="Olá! Quero uma proposta de locação de impressoras." />
+
+  <ContactCTA />
+</Layout>

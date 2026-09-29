@@ -1,0 +1,272 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Locação de Impressoras',
+  description:
+    'Locação de impressoras corporativas e multifuncionais em Curitiba, com manutenção, toner e suporte já inclusos. Sem comprar equipamento, com custo por página.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Locação corporativa · Curitiba"
+    actions={[
+      { variant: 'primary', text: 'Pedir orçamento de locação', href: '#proposta' },
+      { text: 'Pedir diagnóstico gratuito', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">
+      Locação de impressoras corporativas <span class="text-primary">e multifuncionais</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Alugue impressoras e multifuncionais para a sua empresa com manutenção, toner e suporte já inclusos. Sem comprar
+      equipamento, sem imobilizar capital, com custo por página.
+      <span class="block mt-4 text-base font-medium">
+        No mercado desde 1995 · Autorizada Xerox · Custo por página previsível
+      </span>
+    </Fragment>
+  </Hero>
+
+  <PropostaForm
+    title="Receba uma proposta sob medida"
+    subtitle="Conte um pouco sobre a sua operação. Retornamos com um diagnóstico e o custo por página estimado, sem compromisso."
+    whatsapp="Olá! Quero um orçamento de locação de impressoras."
+  />
+
+  <Brands
+    title="Trabalhamos com as principais marcas"
+    boxed={false}
+    icons={[]}
+    images={[
+      { src: '~/assets/images/brands/Brother.png', alt: 'Brother' },
+      { src: '~/assets/images/brands/Canon.png', alt: 'Canon' },
+      { src: '~/assets/images/brands/Hp-invent.png', alt: 'HP Invent' },
+      { src: '~/assets/images/brands/Hp.png', alt: 'HP' },
+      { src: '~/assets/images/brands/Lexmark.png', alt: 'Lexmark' },
+      { src: '~/assets/images/brands/Ricoh.png', alt: 'Ricoh' },
+      { src: '~/assets/images/brands/Samsung.png', alt: 'Samsung' },
+    ]}
+  />
+
+  <Features
+    id="por-que-alugar"
+    tagline="Por que alugar"
+    title="Comprar impressora prende capital e envelhece rápido"
+    subtitle="O equipamento que você compra hoje vira custo amanhã: manutenção, insumo e a conta da obsolescência."
+    columns={2}
+    items={[
+      {
+        title: 'Investimento parado',
+        description: 'Comprar o parque imobiliza um dinheiro que faria mais no seu negócio.',
+        icon: 'tabler:coin-off',
+      },
+      {
+        title: 'Equipamento que envelhece',
+        description: 'A impressora comprada fica obsoleta e a manutenção encarece com o tempo.',
+        icon: 'tabler:history',
+      },
+      {
+        title: 'Insumo e peça por fora',
+        description: 'Cada toner e cada reparo vira um custo avulso e imprevisível.',
+        icon: 'tabler:receipt',
+      },
+      {
+        title: 'Volume que muda',
+        description: 'Você compra para hoje e o equipamento não acompanha o crescimento.',
+        icon: 'tabler:chart-arrows-vertical',
+      },
+    ]}
+  />
+
+  <Features2
+    id="o-que-esta-incluso"
+    tagline="O que está incluso"
+    title="Tudo o que a sua empresa precisa para imprimir, em um aluguel só"
+    subtitle="A locação corporativa da Interativa entrega o equipamento certo com manutenção e suprimento já dentro do contrato."
+    items={[
+      {
+        title: 'Equipamento certo',
+        description: 'Multifuncionais e impressoras dimensionadas para o seu volume.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Manutenção inclusa',
+        description: 'Preventiva e corretiva por conta da Interativa, sem custo extra.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Toner e cilindro',
+        description: 'Suprimentos entregues antes de acabar, dentro do contrato.',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Custo por página',
+        description: 'Você paga pelo que imprime, com valor fechado.',
+        icon: 'tabler:calculator',
+      },
+      {
+        title: 'Colorido ou mono',
+        description: 'Modelos A4 e A3, laser, para cada necessidade.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Troca e upgrade',
+        description: 'Precisou de mais capacidade? A gente ajusta o equipamento.',
+        icon: 'tabler:arrows-exchange',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Features2>
+
+  <Steps2
+    id="como-funciona"
+    tagline="Como funciona"
+    title="Do diagnóstico à multifuncional instalada"
+    subtitle="Um caminho simples para ter o equipamento certo sem comprar nada."
+    callToAction={{
+      text: 'Pedir diagnóstico gratuito',
+      href: WHATSAPP_URL,
+      target: '_blank',
+      icon: 'tabler:brand-whatsapp',
+    }}
+    items={[
+      {
+        title: '1. Diagnóstico de volume',
+        description: 'Entendemos quanto e o que a sua empresa imprime.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: '2. Escolha dos modelos',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: '3. Instalação',
+        description: 'Levamos, instalamos e configuramos os equipamentos.',
+        icon: 'tabler:truck-delivery',
+      },
+      {
+        title: '4. Suporte contínuo',
+        description: 'Manutenção, insumos e troca ao longo do contrato.',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+
+  <Content
+    tagline="O que muda na prática"
+    title="Impressão sem capital preso"
+    items={[
+      {
+        title: 'Zero investimento inicial',
+        description: 'Nenhum capital preso na compra de equipamento.',
+      },
+      {
+        title: 'Custo previsível',
+        description: 'Manutenção e toner já entram na conta do aluguel.',
+      },
+      {
+        title: 'Sempre atualizado',
+        description: 'Equipamento moderno sem o custo de renovação do parque.',
+      },
+      {
+        title: 'Escala fácil',
+        description: 'Cresça ou reduza o parque conforme a demanda.',
+      },
+    ]}
+    image={{ src: '~/assets/images/hero-impressora.png', alt: 'Impressora multifuncional em escritório' }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <Features
+    id="diferenciais"
+    title="Por que escolher a Interativa"
+    columns={4}
+    items={[
+      {
+        title: '1995',
+        description: 'Ano em que começamos a atender empresas de Curitiba e região.',
+        icon: 'tabler:calendar-star',
+      },
+      {
+        title: 'Estoque',
+        description: 'Peças originais em estoque próprio, para o reparo não ficar esperando fornecedor.',
+        icon: 'tabler:building-warehouse',
+      },
+      {
+        title: 'Rápido',
+        description: 'Equipe organizada para atender chamados com agilidade e reduzir o tempo de máquina parada.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: '1 a 1',
+        description: 'Atendimento próximo, que entende a necessidade de cada empresa.',
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+  />
+
+  <FAQs
+    id="duvidas"
+    tagline="Dúvidas frequentes"
+    title="Perguntas sobre locação de impressoras e multifuncionais"
+    schema
+    items={[
+      {
+        title: 'O que está incluso na locação de impressoras?',
+        description:
+          'O equipamento, a manutenção preventiva e corretiva e os suprimentos como toner e cilindro. Você paga um custo por página e não tem despesa avulsa com peça ou insumo.',
+      },
+      {
+        title: 'Qual a diferença entre locação de impressoras e de multifuncionais?',
+        description:
+          'A multifuncional imprime, copia, digitaliza e às vezes envia fax no mesmo equipamento. A Interativa loca os dois tipos; no diagnóstico indicamos o que faz sentido para a sua rotina.',
+      },
+      {
+        title: 'Existe volume mínimo para alugar?',
+        description:
+          'O contrato é montado conforme o seu volume. Fale com a gente que verificamos a melhor configuração para o tamanho da sua operação.',
+      },
+      {
+        title: 'A manutenção e o toner estão inclusos?',
+        description:
+          'Sim. Ambos fazem parte do contrato de locação, e a reposição de insumo é enviada antes de acabar.',
+      },
+      {
+        title: 'Posso trocar de equipamento durante o contrato?',
+        description:
+          'Sim. Se o seu volume mudar ou você precisar de mais capacidade, ajustamos o equipamento ao longo do contrato.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </FAQs>
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA
+    title="Peça um orçamento de locação para a sua empresa"
+    subtitle="Diga o quanto a sua empresa imprime e devolvemos uma proposta de locação com manutenção e toner inclusos."
+    buttonText="Pedir diagnóstico gratuito"
+  />
+</Layout>

@@ -1,0 +1,108 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Note from '~/components/widgets/Note.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Outsourcing de Impressão em Curitiba',
+  description:
+    'Terceirize toda a sua impressão com a Interativa: gestão do parque, suprimentos, impressão segura e relatórios por custo. Peça um diagnóstico gratuito.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Outsourcing de Impressão"
+    actions={[
+      { variant: 'primary', text: 'Quero terceirizar', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+    image={{ src: '~/assets/images/hero-impressora.png', alt: 'Pessoa operando uma impressora multifuncional' }}
+  >
+    <Fragment slot="title">Outsourcing de impressão <span class="text-primary">em Curitiba</span></Fragment>
+    <Fragment slot="subtitle">
+      A Interativa assume toda a gestão do seu parque de impressão. Controle de cotas, impressão segura e relatórios por
+      centro de custo, com custo por página previsível.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    id="metodo"
+    tagline="Método Interativa"
+    title="Do diagnóstico ao controle total, em quatro etapas"
+    subtitle="Não se trata de venda de equipamento, e sim de um processo consultivo."
+    callToAction={{
+      variant: 'primary',
+      text: 'Solicite uma proposta personalizada!',
+      href: '#proposta',
+    }}
+    items={[
+      {
+        title: '1. Diagnóstico',
+        description: 'Mapeamos o parque, o volume e os custos atuais, sem compromisso.',
+        icon: 'tabler:clipboard-search',
+      },
+      {
+        title: '2. Projeto sob medida',
+        description: 'Desenhamos a solução de equipamentos e software adequada à sua rotina.',
+        icon: 'tabler:pencil-cog',
+      },
+      {
+        title: '3. Implantação',
+        description: 'Instalação, integração à rede e treinamento da equipe.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: '4. Gestão contínua',
+        description: 'Reposição proativa de suprimentos, manutenção e relatório de uso mensal.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  <Content
+    id="beneficios"
+    tagline="Controle e governança"
+    title="O que a empresa ganha"
+    image={{ src: '~/assets/images/blog/Manutencao-de-impressoras-em-curitiba-31.jpg', alt: 'Impressora em uso' }}
+    items={[
+      { title: 'Custo por página previsível, sem surpresas no orçamento' },
+      { title: 'Reposição de toner antes da falta, com estoque monitorado' },
+      { title: 'Manutenção e substituição de equipamento sob a responsabilidade da Interativa' },
+      { title: 'Relatórios que apoiam a governança e a tomada de decisão' },
+    ]}
+  >
+    <Fragment slot="content">
+      <p>Com o outsourcing, a impressão deixa de ser um custo invisível e passa a ser um processo governado:</p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <Note title="Complementos:">
+    <Fragment slot="description">
+      combine com a <a class="text-primary underline" href="/gestao-de-impressao">Gestão de Impressão</a> e a
+      <a class="text-primary underline" href="/compensacao-de-carbono-na-sua-impressao">Compensação de Carbono</a> para governança
+      e ESG completos.
+    </Fragment>
+  </Note>
+
+  <Note
+    title="Para quem é:"
+    description="Empresas de médio e grande porte que precisam de governança, previsibilidade e um fornecedor próximo e ágil."
+  />
+
+  <PropostaForm whatsapp="Olá! Quero uma proposta de outsourcing de impressão." />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA />
+</Layout>

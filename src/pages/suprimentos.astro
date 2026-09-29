@@ -1,0 +1,138 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Suprimentos',
+  description: 'Reduza Custos, Aumente a Produtividade - Concentre-se no que é mais importante para sua empresa.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Suprimentos"
+    actions={[
+      { variant: 'primary', text: 'Fale com um especialista', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">
+      Soluções rápidas e precisas para suas <span class="text-primary">necessidades de impressão</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Reduza custos, aumente a produtividade. Concentre-se no que é mais importante para sua empresa.
+    </Fragment>
+  </Hero>
+
+  <PropostaForm title="Fale com um especialista" whatsapp="Olá! Quero falar com um especialista sobre suprimentos." />
+
+  <Features2
+    id="servicos"
+    tagline="Assistência técnica"
+    title="Nossos serviços de assistência técnica"
+    subtitle="Na Interativa, compreendemos a importância de ter suas impressoras, copiadoras e multifuncionais em perfeito funcionamento para garantir a produtividade e eficiência do seu negócio. Nossa equipe altamente especializada e qualificada em peças está pronta para oferecer assistência técnica de primeira classe, proporcionando a você tranquilidade e suporte sempre que necessário."
+    items={[
+      {
+        title: 'Manutenção em equipamentos de impressão',
+        description:
+          'Conte com nossa expertise para manter suas impressoras e equipamentos em excelente estado de funcionamento. Realizamos manutenções preventivas e corretivas, prolongando a vida útil dos seus equipamentos.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Assistência técnica para impressoras, copiadoras e multifuncionais',
+        description:
+          'Nossa equipe é especializada em uma ampla variedade de marcas e modelos de impressoras, copiadoras e multifuncionais. Independentemente do equipamento que você possui, estamos preparados para atender às suas necessidades.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Diagnósticos rápidos e precisos',
+        description:
+          'Graças à nossa estrutura e equipe altamente qualificada, podemos realizar diagnósticos precisos em um curto período de tempo. Isso nos permite fornecer soluções rápidas para resolver qualquer problema que possa surgir.',
+        icon: 'tabler:zoom-check',
+      },
+      {
+        title: 'Orçamentos sem compromisso',
+        description:
+          'Ao solicitar nossa assistência técnica, oferecemos orçamentos detalhados sem qualquer compromisso. Nossa transparência e honestidade garantem que você saiba exatamente o que esperar.',
+        icon: 'tabler:file-invoice',
+      },
+      {
+        title: 'Busca e entrega de impressoras em Curitiba e região',
+        description:
+          'Facilitamos o processo para você! Buscamos e entregamos suas impressoras em Curitiba e região, tornando o serviço ainda mais conveniente para o seu negócio.',
+        icon: 'tabler:truck-delivery',
+      },
+      {
+        title: 'Profissionais qualificados',
+        description:
+          'Nossa equipe de técnicos é constantemente treinada e atualizada, garantindo que estejamos sempre à frente das mais recentes tecnologias e tendências do mercado.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Features2>
+
+  <Features
+    id="diferenciais"
+    title="Diferenciais Interativa"
+    columns={3}
+    items={[
+      {
+        title: 'Estoque de peças',
+        description:
+          'Mantemos um amplo estoque de peças originais e de alta qualidade, agilizando o processo de reparo e minimizando o tempo de inatividade do seu equipamento.',
+        icon: 'tabler:building-warehouse',
+      },
+      {
+        title: 'Menor tempo de entrega',
+        description:
+          'Nossa eficiência e organização nos permitem entregar os serviços de assistência técnica com rapidez e pontualidade, reduzindo qualquer interrupção nas suas operações.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Atendimento personalizado',
+        description:
+          'Valorizamos cada cliente e buscamos entender suas necessidades específicas. Nosso atendimento é sempre personalizado e focado em proporcionar a melhor experiência possível.',
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+  />
+
+  <Content
+    title="Assistência Técnica de Impressoras"
+    image={{
+      src: '~/assets/images/blog/Manutencao-de-impressoras-em-curitiba-33.jpg',
+      alt: 'Manutenção de impressora',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        Confie na Interativa para oferecer a assistência técnica que sua empresa precisa. Estamos comprometidos em
+        manter suas operações de impressão em pleno funcionamento, garantindo que você possa concentrar-se no
+        crescimento e sucesso do seu negócio.
+      </p>
+      <p class="mt-4">
+        Entre em contato conosco hoje mesmo para saber mais sobre nossos serviços de assistência técnica de impressoras
+        e como podemos ajudá-lo.
+      </p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA />
+</Layout>

@@ -1,0 +1,97 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Quem Somos',
+  description:
+    'Criada em 1996 com sede em Curitiba, a Interativa desenvolve projetos especializados em solução de impressão. Conheça nossa história, pilares e certificações.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Quem Somos"
+    actions={[
+      { variant: 'primary', text: 'Fale conosco', href: '/contato' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">Nossa <span class="text-primary">História</span></Fragment>
+    <Fragment slot="subtitle">
+      Criada em 1996 com sede em Curitiba, a Interativa desenvolve projetos especializados em solução de impressão, que
+      mais que atender necessidades superam as expectativas e otimizam resultados.
+    </Fragment>
+  </Hero>
+
+  <Content
+    tagline="Interativa"
+    title="Qualidade em cada atendimento"
+    image={{
+      src: '~/assets/images/blog/Manutencao-de-impressoras-em-curitiba-17.jpg',
+      alt: 'Manutenção de impressoras em Curitiba',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        Para isso, a Interativa investe em profissionais qualificados, tecnologia e bom atendimento além de realizar um
+        rígido acompanhamento nos atendimentos, mantendo assim o padrão de qualidade da empresa.
+      </p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <Features2
+    id="pilares"
+    tagline="Nossos Pilares"
+    title="6 pilares fundamentais"
+    subtitle="Pensando sempre em entregar o melhor produto e atendimento ao mercado, baseamos a nossa estrutura em 6 pilares fundamentais, que nos fazem evoluir e melhorar a cada dia, aprendendo e inovando com o mercado."
+    items={[
+      { title: 'Autonomia', icon: 'tabler:compass' },
+      { title: 'Credibilidade', icon: 'tabler:shield-check' },
+      { title: 'Ética', icon: 'tabler:scale' },
+      { title: 'Inovação', icon: 'tabler:bulb' },
+      { title: 'Trabalho em Equipe', icon: 'tabler:users-group' },
+      { title: 'Responsabilidade', icon: 'tabler:heart-handshake' },
+    ]}
+  />
+
+  <Features2
+    id="certificacoes"
+    tagline="Certificações"
+    title="Qualidade certificada"
+    columns={3}
+    items={[
+      {
+        title: 'Certificação ASTM',
+        description:
+          'Atesta que os cartuchos originais da Interativa têm a mesma qualidade e produtividade dos suprimentos originais de fábrica. A Interativa é a única empresa do PR e SC a possuir esta Certificação.',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Certificação ISO 14001',
+        description:
+          'A ISO 14001 garante que a Interativa trabalha com Sistema de Gestão Ambiental, desenvolvendo uma estrutura para a proteção do meio ambiente e rápida resposta às mudanças das condições ambientais.',
+        icon: 'tabler:leaf',
+      },
+      {
+        title: 'Certificação ISO 9001',
+        description: 'A Interativa tem a gestão de qualidade certificada pela ISO 9001 desde 2006.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Features2>
+
+  <ContactCTA subtitle="Conheça as soluções de impressão da Interativa para a sua empresa." />
+</Layout>

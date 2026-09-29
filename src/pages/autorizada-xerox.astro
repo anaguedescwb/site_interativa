@@ -1,0 +1,118 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Autorizada Xerox',
+  description: 'Reduza Custos, Aumente a Produtividade - Concentre-se no que é mais importante para sua empresa.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Autorizada Xerox"
+    actions={[
+      { variant: 'primary', text: 'Solicite uma Proposta Personalizada!', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">Assistência Técnica <span class="text-primary">Autorizada Xerox</span></Fragment>
+    <Fragment slot="subtitle">
+      Reduza custos, aumente a produtividade. Concentre-se no que é mais importante para sua empresa.
+    </Fragment>
+  </Hero>
+
+  <Content
+    tagline="Diferenciais Interativa"
+    title="Equipamentos operando com a máxima performance"
+    image={{ src: '~/assets/images/produtos/xerox.png', alt: 'Impressora Xerox' }}
+  >
+    <Fragment slot="content">
+      <p>
+        Em cada ambiente de negócios é importante a disponibilidade dos equipamentos para oferecer o máximo de suas
+        possibilidades, e que todas as impressoras, copiadoras e aparelhos multifuncionais operem com a máxima
+        performance. Isto é muito importante no ambiente de alto volume, onde cada problema pode comprometer a rotina e
+        afetar de forma significativa a eficiência e, por conseguinte, o desempenho em seu escritório.
+      </p>
+      <p class="mt-4">
+        A Interativa oferece a seus clientes serviços de manutenção para impressoras em Curitiba e Região Metropolitana:
+        manutenção preventiva e corretiva, limpeza, reparação mecânica, sistema de limpeza da cabeça de impressão,
+        lubrificação de componentes, substituição de componentes internos e reparo em placa lógica de impressoras a jato
+        de tinta.
+      </p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <CallToAction
+    id="produtos"
+    title="Nossos Produtos"
+    subtitle="Conheça as impressoras e multifuncionais Xerox disponíveis na Interativa."
+    actions={[{ variant: 'primary', text: 'Ver produtos', href: '/produtos', icon: 'tabler:printer' }]}
+  />
+
+  <Features2
+    id="servicos"
+    tagline="Assistência técnica"
+    title="Nossos Serviços de Assistência Técnica"
+    subtitle="Na Interativa, compreendemos a importância de ter suas impressoras, copiadoras e multifuncionais em perfeito funcionamento para garantir a produtividade e eficiência do seu negócio. Nossa equipe altamente especializada e qualificada em peças está pronta para oferecer assistência técnica de primeira classe, proporcionando a você tranquilidade e suporte sempre que necessário."
+    items={[
+      {
+        title: 'Manutenção em Equipamentos de Impressão',
+        description:
+          'Conte com nossa expertise para manter suas impressoras e equipamentos em excelente estado de funcionamento. Realizamos manutenções preventivas e corretivas, prolongando a vida útil dos seus equipamentos.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Assistência Técnica para Impressoras, Copiadoras e Multifuncionais',
+        description:
+          'Nossa equipe é especializada em uma ampla variedade de marcas e modelos de impressoras, copiadoras e multifuncionais. Independentemente do equipamento que você possui, estamos preparados para atender às suas necessidades.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Diagnósticos Rápidos e Precisos',
+        description:
+          'Graças à nossa estrutura e equipe altamente qualificada, podemos realizar diagnósticos precisos em um curto período de tempo. Isso nos permite fornecer soluções rápidas para resolver qualquer problema que possa surgir.',
+        icon: 'tabler:stethoscope',
+      },
+      {
+        title: 'Orçamentos sem Compromisso',
+        description:
+          'Ao solicitar nossa assistência técnica, oferecemos orçamentos detalhados sem qualquer compromisso. Nossa transparência e honestidade garantem que você saiba exatamente o que esperar.',
+        icon: 'tabler:file-invoice',
+      },
+      {
+        title: 'Busca e Entrega de Impressoras em Curitiba e Região',
+        description:
+          'Facilitamos o processo para você! Buscamos e entregamos suas impressoras em Curitiba e região, tornando o serviço ainda mais conveniente para o seu negócio.',
+        icon: 'tabler:truck-delivery',
+      },
+      {
+        title: 'Profissionais Qualificados',
+        description:
+          'Nossa equipe de técnicos é constantemente treinada e atualizada, garantindo que estejamos sempre à frente das mais recentes tecnologias e tendências do mercado.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+  />
+
+  <PropostaForm whatsapp="Olá! Quero uma proposta de assistência técnica Xerox." />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA
+    title="Assistência Técnica de Impressoras"
+    subtitle="Confie na Interativa para oferecer a assistência técnica que sua empresa precisa. Estamos comprometidos em manter suas operações de impressão em pleno funcionamento, garantindo que você possa concentrar-se no crescimento e sucesso do seu negócio. Entre em contato conosco hoje mesmo para saber mais sobre nossos serviços de assistência técnica de impressoras e como podemos ajudá-lo."
+    buttonText="Solicite um Orçamento"
+  />
+</Layout>

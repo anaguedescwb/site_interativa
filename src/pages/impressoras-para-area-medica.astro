@@ -1,0 +1,111 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Impressoras para Área Médica',
+  description:
+    'Locação e outsourcing de impressão para clínicas, hospitais e laboratórios. Impressão segura de laudos e prontuários com suporte ágil. Fale com a Interativa.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Impressoras para Área Médica"
+    actions={[
+      { variant: 'primary', text: 'Quero terceirizar', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">Impressão de exames de diagnóstico <span class="text-primary">em papel</span></Fragment>
+    <Fragment slot="subtitle">
+      Reduza custos, aumente a produtividade. Concentre-se no que é mais importante para sua empresa.
+    </Fragment>
+  </Hero>
+
+  <Content
+    tagline="Diferenciais Interativa"
+    title="Exames médicos em papel, com cores vibrantes até A3+"
+    image={{ src: '~/assets/images/blog/Manutencao-de-impressoras-em-curitiba-16.jpg', alt: 'Impressora em uso' }}
+  >
+    <Fragment slot="content">
+      <p>
+        Temos solução que combina a efetividade em termos de custos e a produção de alta qualidade da impressão
+        LED/LASER Color. Você não precisa mais imprimir em mídias caras e dispositivos especializados. Agora você pode
+        imprimir exames médicos em papel, com cores vibrantes até tamanhos até A3+ (33cm x 42cm).
+      </p>
+      <p class="mt-4">
+        Desde raios-X (comuns em consultórios odontológicos, veterinários, hospitais e clínicas) até reconstruções de
+        medicina nuclear (ressonâncias e tomografias) e ultrassom, estas imagens podem ser facilmente impressas para uso
+        não diagnóstico ou como documento para os pacientes e clientes.
+      </p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <Note
+    title="Para quem é:"
+    description="Empresas de médio e grande porte que precisam de governança, previsibilidade e um fornecedor próximo e ágil."
+  />
+
+  <Features2
+    id="solucoes"
+    tagline="Método Interativa"
+    title="Soluções de impressão para área médica"
+    subtitle="Você não precisa de mais meios de impressão caros. Agora, você pode imprimir os exames médicos em suporte de papel, utilizando equipamentos com tecnologia de alta definição de cor em tamanhos até A3. O sistema de impressão em papel permite a redução de custos de impressão, em comparação com o método tradicional de impressão no filme, com alta definição de impressão e gerando maior produtividade do equipamento."
+    items={[
+      {
+        title: 'Manutenção em equipamentos de impressão',
+        description:
+          'Conte com nossa expertise para manter suas impressoras e equipamentos em excelente estado de funcionamento. Realizamos manutenções preventivas e corretivas, prolongando a vida útil dos seus equipamentos.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Assistência técnica para impressoras, copiadoras e multifuncionais',
+        description:
+          'Nossa equipe é especializada em uma ampla variedade de marcas e modelos de impressoras, copiadoras e multifuncionais. Independentemente do equipamento que você possui, estamos preparados para atender às suas necessidades.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Diagnósticos rápidos e precisos',
+        description:
+          'Graças à nossa estrutura e equipe altamente qualificada, podemos realizar diagnósticos precisos em um curto período de tempo. Isso nos permite fornecer soluções rápidas para resolver qualquer problema que possa surgir.',
+        icon: 'tabler:stethoscope',
+      },
+      {
+        title: 'Orçamentos sem compromisso',
+        description:
+          'Ao solicitar nossa assistência técnica, oferecemos orçamentos detalhados sem qualquer compromisso. Nossa transparência e honestidade garantem que você saiba exatamente o que esperar.',
+        icon: 'tabler:file-invoice',
+      },
+      {
+        title: 'Busca e entrega de impressoras em Curitiba e região',
+        description:
+          'Facilitamos o processo para você! Buscamos e entregamos suas impressoras em Curitiba e região, tornando o serviço ainda mais conveniente para o seu negócio.',
+        icon: 'tabler:truck-delivery',
+      },
+      {
+        title: 'Profissionais qualificados',
+        description:
+          'Nossa equipe de técnicos é constantemente treinada e atualizada, garantindo que estejamos sempre à frente das mais recentes tecnologias e tendências do mercado.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+  />
+
+  <PropostaForm whatsapp="Olá! Quero uma proposta de impressão para área médica." />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA />
+</Layout>
