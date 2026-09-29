@@ -1,0 +1,90 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Contact from '~/components/widgets/Contact.astro';
+import { PHONE_DISPLAY, PHONE_HREF } from '~/navigation';
+
+const metadata = {
+  title: 'Contato',
+  description:
+    'Fale com a Interativa: Rua Buenos Aires, 1373, Água Verde, Curitiba/PR. Telefone (41) 3013-4444 e e-mail falecom@interativa.inf.br.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Contato" title="Fale com a Interativa" />
+
+  <Features2
+    id="informacoes"
+    columns={4}
+    items={[
+      {
+        title: 'Endereço',
+        description: 'Rua Buenos Aires – 1373<br />Água Verde | Curitiba | Paraná',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Atendimento',
+        description: 'Seg - Sex: 7:00 – 18:00<br />Sábado: 10:00 – 17:00',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'E-mail',
+        description: 'falecom@interativa.inf.br',
+        icon: 'tabler:mail',
+        href: 'mailto:falecom@interativa.inf.br',
+      },
+      {
+        title: 'Telefone',
+        description: PHONE_DISPLAY,
+        icon: 'tabler:phone',
+        href: PHONE_HREF,
+      },
+    ]}
+  />
+
+  <Contact
+    id="formulario"
+    title="Contato"
+    subtitle="Preencha o formulário e retornaremos o seu contato."
+    inputs={[
+      { type: 'text', name: 'cnpj', label: 'CNPJ' },
+      { type: 'text', name: 'razao_social', label: 'Razão Social', autocomplete: 'organization' },
+      { type: 'text', name: 'nome', label: 'Nome', autocomplete: 'name' },
+      { type: 'email', name: 'email', label: 'E-mail', autocomplete: 'email' },
+      { type: 'tel', name: 'telefone', label: 'Telefone', autocomplete: 'tel' },
+      {
+        type: 'text',
+        name: 'tipo_impressao',
+        label: 'Que tipo de impressão você precisa?',
+        options: ['Colorida', 'Preto e branco'],
+      },
+      { type: 'text', name: 'scanner_copia', label: 'Precisa de scanner e cópia?', options: ['Sim', 'Não'] },
+      {
+        type: 'text',
+        name: 'quantidade',
+        label: 'Quantidade de impressão?',
+        options: [
+          'Até 500/mês',
+          'Até 1.000/mês',
+          'Até 2.000/mês',
+          'Até 3.000/mês',
+          'Até 4.000/mês',
+          'Até 5.000/mês',
+          'Até 10.000/mês',
+          'Acima de 10.000/mês',
+        ],
+      },
+    ]}
+    textarea={{ label: 'Mensagem' }}
+    button="Enviar"
+    whatsapp="Olá! Vim pelo site e gostaria de um contato."
+    description="Ao enviar, abrimos o WhatsApp da Interativa com os seus dados preenchidos."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Contact>
+</Layout>

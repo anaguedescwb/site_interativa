@@ -1,0 +1,119 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Impressão para Advocacias',
+  description:
+    'Impressão para escritórios de advocacia: sigilo, digitalização de processos e alto volume com custo por página. Conheça a solução da Interativa.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Impressão para Advocacias"
+    actions={[
+      { variant: 'primary', text: 'Quero terceirizar', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">
+      Soluções rápidas e precisas para suas <span class="text-primary">necessidades de impressão</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Reduza custos, aumente a produtividade. Concentre-se no que é mais importante para sua empresa.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    id="solucoes"
+    tagline="Método Interativa"
+    title="Nossos serviços de assistência técnica"
+    subtitle="Na Interativa, compreendemos a importância de ter suas impressoras, copiadoras e multifuncionais em perfeito funcionamento para garantir a produtividade e eficiência do seu negócio. Nossa equipe altamente especializada e qualificada em peças está pronta para oferecer assistência técnica de primeira classe, proporcionando a você tranquilidade e suporte sempre que necessário."
+    items={[
+      {
+        title: 'Diagnósticos rápidos e precisos',
+        description:
+          'Graças à nossa estrutura e equipe altamente qualificada, podemos realizar diagnósticos precisos em um curto período de tempo. Isso nos permite fornecer soluções rápidas para resolver qualquer problema que possa surgir.',
+        icon: 'tabler:zoom-check',
+      },
+      {
+        title: 'Manutenção em equipamentos de impressão',
+        description:
+          'Conte com nossa expertise para manter suas impressoras e equipamentos em excelente estado de funcionamento. Realizamos manutenções preventivas e corretivas, prolongando a vida útil dos seus equipamentos.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Assistência técnica para impressoras, copiadoras e multifuncionais',
+        description:
+          'Nossa equipe é especializada em uma ampla variedade de marcas e modelos de impressoras, copiadoras e multifuncionais. Independentemente do equipamento que você possui, estamos preparados para atender às suas necessidades.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Orçamentos sem compromisso',
+        description:
+          'Ao solicitar nossa assistência técnica, oferecemos orçamentos detalhados sem qualquer compromisso. Nossa transparência e honestidade garantem que você saiba exatamente o que esperar.',
+        icon: 'tabler:file-invoice',
+      },
+      {
+        title: 'Profissionais qualificados',
+        description:
+          'Nossa equipe de técnicos é constantemente treinada e atualizada, garantindo que estejamos sempre à frente das mais recentes tecnologias e tendências do mercado.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Busca e entrega de impressoras em Curitiba e região',
+        description:
+          'Facilitamos o processo para você! Buscamos e entregamos suas impressoras em Curitiba e região, tornando o serviço ainda mais conveniente para o seu negócio.',
+        icon: 'tabler:truck-delivery',
+      },
+    ]}
+  />
+
+  <Content
+    tagline="Diferenciais Interativa"
+    title="Assistência técnica que mantém a sua operação funcionando"
+    image={{
+      src: '~/assets/images/blog/Manutencao-de-impressoras-em-curitiba-17.jpg',
+      alt: 'Assistência técnica de impressoras',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        Na Interativa, a assistência técnica vai além do conserto: ela mantém a sua operação funcionando. Trabalhamos
+        com um amplo estoque de peças originais e de alta qualidade, o que agiliza cada reparo e reduz ao mínimo o tempo
+        em que o seu equipamento fica parado. Essa estrutura, somada à eficiência e à organização da nossa equipe, nos
+        permite entregar o serviço com rapidez e pontualidade, evitando qualquer interrupção nas suas atividades. E
+        porque cada empresa é diferente, nosso atendimento é sempre personalizado: buscamos entender as necessidades
+        específicas de cada cliente para oferecer a melhor experiência possível, do primeiro contato à conclusão do
+        serviço.
+      </p>
+      <p class="mt-4">
+        Solicite uma proposta personalizada e descubra por que a Interativa é a parceira certa para cuidar dos seus
+        equipamentos.
+      </p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <Note
+    title="Para quem é:"
+    description="Empresas de médio e grande porte que precisam de governança, previsibilidade e um fornecedor próximo e ágil."
+  />
+
+  <PropostaForm whatsapp="Olá! Quero uma proposta de impressão para advocacia." />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA />
+</Layout>

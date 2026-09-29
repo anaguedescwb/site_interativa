@@ -1,0 +1,114 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Serviços de Impressão',
+  description:
+    'A Interativa atua nas áreas de suprimentos, soluções corporativas de impressão e assistência técnica. Conheça os serviços prestados.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Serviços de Impressão"
+    actions={[
+      { variant: 'primary', text: 'Ver serviços', href: '#servicos' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">Nossos <span class="text-primary">serviços</span></Fragment>
+    <Fragment slot="subtitle">
+      A Interativa atua nas áreas de suprimentos, soluções corporativas de impressão e assistência técnica. Entre os
+      serviços prestados, destacam-se:
+    </Fragment>
+  </Hero>
+
+  <Features2
+    id="servicos"
+    title="Serviços prestados"
+    items={[
+      {
+        title: 'Suprimentos',
+        description: 'As melhores soluções de suprimento de impressão.',
+        icon: 'tabler:droplet',
+        href: '/suprimentos',
+      },
+      {
+        title: 'Locação de Impressoras',
+        description:
+          'A Locação de Impressoras significa transferir as atividades para uma empresa especializada, o que no português claro é a terceirização do serviço.',
+        icon: 'tabler:printer',
+        href: '/locacao-de-impressoras',
+      },
+      {
+        title: 'Impressoras para Varejo',
+        description:
+          'Oferecemos as melhores soluções de impressão para o varejo, home office, pequenas e médias empresas.',
+        icon: 'tabler:building-store',
+        href: '/impressoras-para-varejo',
+      },
+      {
+        title: 'Gestão de Outsourcing',
+        description: 'Outsourcing de impressão permite que você ganhe tempo para gerenciar o seu negócio.',
+        icon: 'tabler:chart-pie',
+        href: '/gestao-de-outsourcing',
+      },
+      {
+        title: 'Autorizada Xerox',
+        description: 'Assistência técnica especializada e qualificação em peças de copiadoras e multifuncionais.',
+        icon: 'tabler:certificate',
+        href: '/autorizada-xerox',
+      },
+      {
+        title: 'Assistência Técnica de Impressoras',
+        description: 'Soluções de impressão para escritórios de Advocacia com eficiência e qualidade.',
+        icon: 'tabler:tool',
+        href: '/assistencia-tecnica-de-impressoras',
+      },
+      {
+        title: 'Impressoras para Área Médica',
+        description:
+          'Imagine as possibilidades: impressão de reconstruções em grande formato e alta definição de cores.',
+        icon: 'tabler:stethoscope',
+        href: '/impressoras-para-area-medica',
+      },
+      {
+        title: 'Impressão para Contabilidade',
+        description:
+          'Gestão de Impressão para contabilidade com as melhores soluções de impressão para mercado financeiro.',
+        icon: 'tabler:calculator',
+        href: '/impressao-para-contabilidade',
+      },
+      {
+        title: 'Impressão para Advocacias',
+        description: 'Soluções de impressão para escritórios de Advocacia com eficiência e qualidade.',
+        icon: 'tabler:scale',
+        href: '/impressao-para-advocacias',
+      },
+      {
+        title: 'Impressão para Escolas',
+        description:
+          'Impressão para Escolas, Universidades, Faculdades. Gestão de Documentos Inteligente e Otimizada, Maximizando os Recursos Financeiros e Tecnológicos.',
+        icon: 'tabler:school',
+        href: '/impressao-para-escolas',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Features2>
+
+  <PropostaForm whatsapp="Olá! Quero conhecer os serviços de impressão da Interativa." />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA />
+</Layout>

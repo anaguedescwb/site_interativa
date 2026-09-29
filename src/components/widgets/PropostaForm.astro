@@ -1,0 +1,38 @@
+---
+// Formulário padrão de proposta usado nas páginas de serviço e segmento.
+import Contact from '~/components/widgets/Contact.astro';
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  /** Primeira linha da mensagem enviada ao WhatsApp. */
+  whatsapp?: string;
+}
+
+const {
+  id = 'proposta',
+  title = 'Solicite uma proposta personalizada',
+  subtitle = 'Conte um pouco sobre a sua operação. Retornamos com um diagnóstico e o custo estimado, sem compromisso.',
+  whatsapp = 'Olá! Quero uma proposta da Interativa.',
+} = Astro.props;
+---
+
+<Contact
+  id={id}
+  title={title}
+  subtitle={subtitle}
+  inputs={[
+    { type: 'text', name: 'empresa', label: 'Nome da sua empresa*', autocomplete: 'organization', required: true },
+    { type: 'text', name: 'nome', label: 'Nome', autocomplete: 'name' },
+    { type: 'email', name: 'email', label: 'E-mail', autocomplete: 'email' },
+    { type: 'tel', name: 'telefone', label: 'Telefone', autocomplete: 'tel' },
+  ]}
+  button="Pedir proposta"
+  whatsapp={whatsapp}
+  description="Ao enviar, abrimos o WhatsApp da Interativa com os seus dados preenchidos."
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-primary/5"></div>
+  </Fragment>
+</Contact>

@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import { WHATSAPP_URL, PHONE_DISPLAY, PHONE_HREF } from '~/navigation';
+
+const metadata = {
+  title: 'Trabalhe Conosco',
+  description: 'Quer fazer parte da equipe da Interativa? Entre em contato conosco por e-mail, WhatsApp ou telefone.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Carreiras"
+    title="Trabalhe Conosco"
+    subtitle="Quer fazer parte da equipe da Interativa? Entre em contato conosco por um dos canais abaixo."
+  />
+
+  <Features2
+    id="canais"
+    columns={3}
+    items={[
+      {
+        title: 'E-mail',
+        description: 'falecom@interativa.inf.br',
+        icon: 'tabler:mail',
+        href: 'mailto:falecom@interativa.inf.br',
+      },
+      {
+        title: 'WhatsApp',
+        description: PHONE_DISPLAY,
+        icon: 'tabler:brand-whatsapp',
+        href: `${WHATSAPP_URL}?text=${encodeURIComponent('Olá! Gostaria de fazer parte da equipe da Interativa.')}`,
+      },
+      {
+        title: 'Telefone',
+        description: PHONE_DISPLAY,
+        icon: 'tabler:phone',
+        href: PHONE_HREF,
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,33 @@
+---
+// Chamada final padrão: WhatsApp + telefone + endereço.
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { WHATSAPP_URL, PHONE_DISPLAY, PHONE_HREF, ADDRESS } from '~/navigation';
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+}
+
+const {
+  id = 'contato',
+  title = 'Fale com um especialista da Interativa',
+  subtitle = 'Atendemos empresas de Curitiba e região desde 1995. Peça um diagnóstico gratuito.',
+  buttonText = 'Falar no WhatsApp',
+} = Astro.props;
+---
+
+<CallToAction
+  id={id}
+  actions={[
+    { variant: 'primary', text: buttonText, href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    { variant: 'secondary', text: PHONE_DISPLAY, href: PHONE_HREF, icon: 'tabler:phone' },
+  ]}
+>
+  <Fragment slot="title">{title}</Fragment>
+  <Fragment slot="subtitle">
+    {subtitle}
+    <span class="block mt-4 text-base">{ADDRESS}</span>
+  </Fragment>
+</CallToAction>

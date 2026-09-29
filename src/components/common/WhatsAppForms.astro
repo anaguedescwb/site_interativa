@@ -1,0 +1,25 @@
+---
+import { WHATSAPP_URL } from '~/navigation';
+---
+
+<script is:inline define:vars={{ whatsapp: WHATSAPP_URL }}>
+  // O site é estático: formulários com data-whatsapp-form abrem o WhatsApp da Interativa com os campos preenchidos.
+  function bindWhatsAppForms() {
+    document.querySelectorAll('form[data-whatsapp-form]').forEach((form) => {
+      if (form.dataset.bound) return;
+      form.dataset.bound = 'true';
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        const lines = [form.dataset.whatsappForm];
+        form.querySelectorAll('[data-label]').forEach((field) => {
+          const value = String(field.value || '').trim();
+          if (value) lines.push(`${field.dataset.label.replace(/\*$/, '')}: ${value}`);
+        });
+        window.open(`${whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+      });
+    });
+  }
+  bindWhatsAppForms();
+  document.addEventListener('astro:page-load', bindWhatsAppForms);
+</script>

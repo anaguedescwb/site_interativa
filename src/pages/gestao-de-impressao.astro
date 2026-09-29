@@ -1,0 +1,274 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Gestão de Impressão',
+  description:
+    'Controle cotas, custos e segurança do seu parque com a gestão de impressão da Interativa. Relatórios por centro de custo e impressão segura. Saiba mais.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Gestão e controle do parque · Curitiba"
+    actions={[
+      { variant: 'primary', text: 'Quero controlar minha impressão', href: '#proposta' },
+      { text: 'Falar com um especialista', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">Gestão de impressão com <span class="text-primary">controle total do parque</span></Fragment>
+    <Fragment slot="subtitle">
+      Saiba quem imprime o quê, defina regras por setor e proteja documentos com impressão segura. O gerenciamento de
+      impressão da Interativa transforma um custo invisível em dado.
+      <span class="mt-4 flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-1 text-base font-medium">
+        <span>✓ No mercado desde 1995</span>
+        <span>✓ Autorizada Xerox</span>
+        <span>✓ Custo por página previsível</span>
+      </span>
+    </Fragment>
+  </Hero>
+
+  <PropostaForm
+    title="Receba uma proposta sob medida"
+    subtitle="Conte um pouco sobre a sua operação. Retornamos com um diagnóstico e o custo por página estimado, sem compromisso."
+    whatsapp="Olá! Quero controlar minha impressão (gestão de impressão)."
+  />
+
+  <Brands
+    title="Trabalhamos com as principais marcas"
+    boxed={false}
+    icons={[]}
+    images={[
+      { src: '~/assets/images/brands/Brother.png', alt: 'Brother' },
+      { src: '~/assets/images/brands/Canon.png', alt: 'Canon' },
+      { src: '~/assets/images/brands/Hp-invent.png', alt: 'HP Invent' },
+      { src: '~/assets/images/brands/Hp.png', alt: 'HP' },
+      { src: '~/assets/images/brands/Lexmark.png', alt: 'Lexmark' },
+      { src: '~/assets/images/brands/Ricoh.png', alt: 'Ricoh' },
+      { src: '~/assets/images/brands/Samsung.png', alt: 'Samsung' },
+    ]}
+  />
+
+  <Features
+    id="por-que-gestao"
+    tagline="Por que ter gestão"
+    title="Sem gestão, a impressão vira um ralo de dinheiro"
+    subtitle="Quando ninguém controla o que a empresa imprime, o custo cresce sozinho e o documento fica exposto."
+    columns={4}
+    items={[
+      {
+        title: 'Impressão sem limite',
+        description: 'Qualquer um imprime o que quiser, colorido e só frente, sem controle.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Documento exposto',
+        description: 'Papel confidencial esquecido na bandeja fica ao alcance de qualquer pessoa.',
+        icon: 'tabler:file-alert',
+      },
+      {
+        title: 'Sem visão por setor',
+        description: 'Fica impossível saber qual área ou filial gasta mais.',
+        icon: 'tabler:eye-off',
+      },
+      {
+        title: 'Relatório nenhum',
+        description: 'As decisões sobre impressão são tomadas no escuro.',
+        icon: 'tabler:file-x',
+      },
+    ]}
+  />
+
+  <Features2
+    id="como-funciona"
+    tagline="Como funciona"
+    title="Controle sobre cada página que a empresa imprime"
+    subtitle="A ferramenta de gestão roda sobre o seu parque atual e coloca regra, segurança e relatório no lugar do achismo."
+    items={[
+      {
+        title: 'Cotas por usuário e setor',
+        description: 'Defina limites e regras de uso, como colorido e frente e verso, para cada grupo.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Impressão segura',
+        description: 'O documento só sai quando a pessoa se identifica no equipamento.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Relatórios de consumo',
+        description: 'Veja volume, custo e desperdício por usuário, setor ou filial.',
+        icon: 'tabler:report-analytics',
+      },
+      {
+        title: 'Regras automáticas',
+        description: 'Força frente e verso e preto e branco onde não precisa de cor.',
+        icon: 'tabler:settings-automation',
+      },
+      {
+        title: 'Bilhetagem por centro de custo',
+        description: 'Atribua o custo de impressão ao centro de custo certo.',
+        icon: 'tabler:receipt',
+      },
+      {
+        title: 'Gestão do parque',
+        description: 'Status dos equipamentos, alertas de insumo e chamados em um só lugar.',
+        icon: 'tabler:devices',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Features2>
+
+  <Steps2
+    id="etapas"
+    tagline="Como funciona"
+    title="Da impressão sem controle ao parque gerenciado"
+    subtitle="Colocamos gestão sobre as impressoras que você já tem, sem trocar tudo."
+    callToAction={{
+      variant: 'primary',
+      text: 'Falar com um especialista',
+      href: WHATSAPP_URL,
+      target: '_blank',
+      icon: 'tabler:brand-whatsapp',
+    }}
+    items={[
+      {
+        title: '1. Instalação do software',
+        description: 'Colocamos a ferramenta de gestão sobre o seu parque atual.',
+        icon: 'tabler:download',
+      },
+      {
+        title: '2. Regras e cotas',
+        description: 'Configuramos limites, permissões e impressão segura por setor.',
+        icon: 'tabler:adjustments',
+      },
+      {
+        title: '3. Acompanhamento',
+        description: 'Você passa a receber relatórios de consumo e custo.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: '4. Ajuste fino',
+        description: 'Revisamos as regras para cortar desperdício sem atrapalhar o trabalho.',
+        icon: 'tabler:list-check',
+      },
+    ]}
+  />
+
+  <Features
+    id="resultados"
+    tagline="O que muda na prática"
+    title="Impressão vira dado, não achismo"
+    columns={4}
+    items={[
+      {
+        title: 'Corte de desperdício',
+        description: 'Tornar o custo visível por si só costuma reduzir o volume impresso.',
+        icon: 'tabler:scissors',
+      },
+      {
+        title: 'Documentos protegidos',
+        description: 'A impressão é liberada só pela pessoa certa, no equipamento.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Decisão com dado',
+        description: 'Relatórios no lugar de achismo sobre o que a empresa gasta.',
+        icon: 'tabler:chart-pie',
+      },
+      {
+        title: 'Custo por área',
+        description: 'Cada setor enxerga e responde pelo que imprime.',
+        icon: 'tabler:building',
+      },
+    ]}
+  />
+
+  <Features
+    id="diferenciais"
+    title="Por que escolher a Interativa"
+    columns={4}
+    items={[
+      {
+        title: '1995',
+        description: 'Ano em que começamos a atender empresas de Curitiba e região.',
+        icon: 'tabler:calendar-star',
+      },
+      {
+        title: 'Estoque',
+        description: 'Peças originais em estoque próprio, para o reparo não ficar esperando fornecedor.',
+        icon: 'tabler:building-warehouse',
+      },
+      {
+        title: 'Rápido',
+        description: 'Equipe organizada para atender chamados com agilidade e reduzir o tempo de máquina parada.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: '1 a 1',
+        description: 'Atendimento próximo, que entende a necessidade de cada empresa.',
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Features>
+
+  <FAQs
+    id="duvidas"
+    tagline="Dúvidas frequentes"
+    title="Perguntas sobre gestão e gerenciamento de impressão"
+    schema
+    items={[
+      {
+        title: 'O que é gestão de impressão?',
+        description:
+          'É o conjunto de regras, software e relatórios que dão à empresa controle sobre o que imprime: cotas por setor, impressão segura e visão de custo por área.',
+      },
+      {
+        title: 'Gestão de impressão e gerenciamento de impressão são a mesma coisa?',
+        description:
+          'Sim. Os dois termos descrevem o mesmo serviço: monitorar, controlar e reduzir o custo de impressão do parque da empresa.',
+      },
+      {
+        title: 'Preciso trocar minhas impressoras para ter gestão?',
+        description:
+          'Não. A ferramenta de gestão roda sobre o parque que você já tem. Se algum equipamento não for adequado, indicamos a troca, mas isso não é condição para começar.',
+      },
+      {
+        title: 'Como funciona a impressão segura?',
+        description:
+          'O trabalho fica retido até a pessoa se identificar no equipamento, com senha ou crachá. Assim, o documento não fica esquecido na bandeja ao alcance de qualquer um.',
+      },
+      {
+        title: 'O que é gestão de parque de impressão?',
+        description:
+          'É gerenciar todos os equipamentos da empresa em um só lugar: status, alertas de insumo, chamados de manutenção e consumo por máquina.',
+      },
+    ]}
+  />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA
+    title="Descubra quanto a sua empresa imprime de verdade"
+    subtitle="Peça um diagnóstico gratuito. Mostramos o consumo real do seu parque e onde dá para cortar desperdício."
+    buttonText="Pedir diagnóstico gratuito"
+  />
+</Layout>

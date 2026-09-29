@@ -163,6 +163,9 @@ export interface Input {
   label?: string;
   autocomplete?: string;
   placeholder?: string;
+  required?: boolean;
+  /** Renders a <select> with these options instead of an <input>. */
+  options?: Array<string>;
 }
 
 export interface Textarea {
@@ -191,6 +194,8 @@ export interface Form {
   disclaimer?: Disclaimer;
   button?: string;
   description?: string;
+  /** When set, submitting opens WhatsApp with this intro line plus the filled fields. */
+  whatsapp?: string;
 }
 
 // WIDGETS

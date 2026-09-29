@@ -1,0 +1,127 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Gestão de Outsourcing',
+  description:
+    'Terceirize toda a sua impressão com a Interativa: gestão do parque, suprimentos, impressão segura e relatórios por custo. Peça um diagnóstico gratuito.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Gestão de Outsourcing"
+    actions={[
+      { variant: 'primary', text: 'Solicitar proposta', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">
+      Impressoras e multifuncionais coloridas e monocromáticas <span class="text-primary"
+        >na medida para seu negócio</span
+      >
+    </Fragment>
+    <Fragment slot="subtitle">
+      Reduza custos, aumente a produtividade. Concentre-se no que é mais importante para sua empresa.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    id="como-funciona"
+    tagline="Gestão de Outsourcing"
+    title="Como funciona o outsourcing de impressão?"
+    subtitle="Na Interativa, compreendemos a importância de ter suas impressoras, copiadoras e multifuncionais em perfeito funcionamento para garantir a produtividade e eficiência do seu negócio. Nossa equipe altamente especializada e qualificada em peças está pronta para oferecer assistência técnica de primeira classe, proporcionando a você tranquilidade e suporte sempre que necessário."
+    items={[
+      {
+        title: 'Especialização',
+        description: 'Especialização em processos de impressão.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Gestão',
+        description: 'Gestões efetivas de consumos e custos.',
+        icon: 'tabler:chart-pie',
+      },
+      {
+        title: 'Qualidade',
+        description: 'Qualidade pré-definida em serviços.',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Diagnósticos rápidos e precisos',
+        description:
+          'Graças à nossa estrutura e equipe altamente qualificada, podemos realizar diagnósticos precisos em um curto período de tempo. Isso nos permite fornecer soluções rápidas para resolver qualquer problema que possa surgir.',
+        icon: 'tabler:stethoscope',
+      },
+      {
+        title: 'Orçamentos sem compromisso',
+        description:
+          'Ao solicitar nossa assistência técnica, oferecemos orçamentos detalhados sem qualquer compromisso. Nossa transparência e honestidade garantem que você saiba exatamente o que esperar.',
+        icon: 'tabler:file-invoice',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Features2>
+
+  <Content
+    id="diferenciais"
+    tagline="Diferenciais Interativa"
+    title="Outsourcing é a terceirização do serviço"
+    image={{ src: '~/assets/images/produtos/brother-5502.png', alt: 'Impressora multifuncional Brother' }}
+    items={[
+      { title: 'Atendendo às necessidades corporativas' },
+      { title: 'Que garantem mais vantagem para sua empresa' },
+    ]}
+  >
+    <Fragment slot="content">
+      <p>
+        O termo inglês <em>outsourcing</em> significa a transferência das atividades para uma empresa especializada, o que
+        no português claro é a terceirização do serviço.
+      </p>
+      <p class="mt-4">
+        A contratação de serviços periféricos reduz custos internos, aproveitando o know-how e a especialização de
+        empresas externas que se revelam como opção mais vantajosa, permitindo maiores rentabilidades.
+      </p>
+      <p class="mt-4">
+        Seguindo esta tendência, a Interativa oferece soluções de mais alta tecnologia para ambientes corporativos. São
+        diversas opções de projetos customizados de outsourcing de impressão:
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    title="Gerenciamento de toda a estrutura de impressão"
+    content="A Interativa realiza também o gerenciamento de toda a estrutura de impressão, fornecendo equipamentos, insumos, softwares customizáveis e assistência técnica."
+    items={[
+      { title: 'Equipamentos', icon: 'tabler:printer' },
+      { title: 'Insumos', icon: 'tabler:droplet' },
+      { title: 'Softwares customizáveis', icon: 'tabler:settings-cog' },
+      { title: 'Assistência técnica', icon: 'tabler:tool' },
+    ]}
+  />
+
+  <PropostaForm
+    title="Solicite uma proposta personalizada!"
+    whatsapp="Olá! Quero uma proposta de gestão de outsourcing."
+  />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA
+    title="Assistência técnica de impressoras"
+    subtitle="Confie na Interativa para oferecer a assistência técnica que sua empresa precisa. Estamos comprometidos em manter suas operações de impressão em pleno funcionamento, garantindo que você possa concentrar-se no crescimento e sucesso do seu negócio."
+    buttonText="Solicitar orçamento"
+  />
+</Layout>

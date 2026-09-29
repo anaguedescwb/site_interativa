@@ -1,0 +1,132 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import PropostaForm from '~/components/widgets/PropostaForm.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import { WHATSAPP_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Impressoras para Varejo',
+  description: 'Reduza custos, aumente a produtividade - concentre-se no que é mais importante para sua empresa.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Impressoras para Varejo"
+    actions={[
+      { variant: 'primary', text: 'Quero terceirizar', href: '#proposta' },
+      { text: 'WhatsApp', href: WHATSAPP_URL, target: '_blank', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">
+      Alavanque seu negócio: <span class="text-primary">locação de impressoras</span> para empresas em crescimento
+    </Fragment>
+    <Fragment slot="subtitle">
+      Reduza custos, aumente a produtividade. Concentre-se no que é mais importante para sua empresa.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    id="solucoes"
+    tagline="Método Interativa"
+    title="Conte com a Interativa para impulsionar o seu negócio!"
+    subtitle="Bem-vindo à Interativa, a sua parceira em soluções de impressão para o varejo, home office, pequenas e médias empresas! Estamos aqui para oferecer a você as melhores opções quando se trata de locação de impressoras, com aplicações específicas projetadas para otimizar a entrada e saída de documentos, transformando a maneira como o seu negócio funciona, indo além da simples impressão."
+    items={[
+      {
+        title: 'Economia financeira',
+        description:
+          'Com a locação de impressoras, sua empresa elimina os altos custos iniciais de compra de equipamentos e manutenção, investindo apenas em um valor mensal fixo. Isso libera recursos financeiros para investir em outras áreas estratégicas do seu negócio.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Atualização tecnológica',
+        description:
+          'Nossa solução de locação garante que você sempre tenha acesso às impressoras mais modernas e atualizadas do mercado, sem se preocupar com obsolescência tecnológica.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Foco no core business',
+        description:
+          'Ao terceirizar a gestão das impressoras, sua empresa pode concentrar seus esforços e recursos nas atividades essenciais do negócio, aumentando a eficiência e a produtividade.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Suporte técnico especializado',
+        description:
+          'Contar com nossa equipe de suporte técnico especializado garante que qualquer problema com as impressoras seja rapidamente resolvido, minimizando interrupções no fluxo de trabalho.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Sustentabilidade ambiental',
+        description:
+          'Nossas soluções de impressão são desenvolvidas para reduzir o desperdício de papel e energia, contribuindo para a preservação do meio ambiente.',
+        icon: 'tabler:leaf',
+      },
+    ]}
+  />
+
+  <Content
+    tagline="Controle e governança"
+    title="Gestão de impressão eficiente e confiável"
+    image={{ src: '~/assets/images/blog/Manutencao-de-impressoras-em-curitiba-31.jpg', alt: 'Gestão de impressão' }}
+  >
+    <Fragment slot="content">
+      <p>
+        Nossa equipe é especializada em oferecer soluções completas de gestão de impressão, garantindo que todo o seu
+        parque de impressoras seja monitorado e controlado de forma centralizada. Independentemente de onde suas
+        operações estejam localizadas, você terá total visibilidade de todos os equipamentos, além de controle total
+        para configurar, gerenciar, monitorar e gerar relatórios personalizados. Através de nossa central de
+        monitoramento, acompanhamos em tempo real a produção de impressão e cópias, garantindo que tudo funcione de
+        forma dinâmica e eficiente.
+      </p>
+      <p class="mt-4">
+        Na Interativa, acreditamos que a tecnologia deve estar a serviço da praticidade. Nossas soluções de impressão
+        para o varejo simplificam o fluxo de trabalho de digitalização, armazenamento e distribuição de documentos.
+        Imagine rapidamente ter em mãos as imagens e dados necessários para análise e aprovação de departamentos, como o
+        de crédito, acelerando o processo de vendas. Além disso, nossas soluções também contribuem para a redução de
+        documentos fraudulentos e diminuem o tempo gasto em processos que, anteriormente, levariam dias para serem
+        concluídos.
+      </p>
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-primary/5"></div>
+    </Fragment>
+  </Content>
+
+  <Features
+    title="Diferenciais Interativa"
+    columns={3}
+    items={[
+      {
+        title: 'Menor tempo de entrega',
+        description:
+          'Nossa eficiência e organização nos permitem entregar os serviços de assistência técnica com rapidez e pontualidade, reduzindo qualquer interrupção nas suas operações.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Sustentabilidade ambiental',
+        description:
+          'Nossas soluções de impressão são desenvolvidas para reduzir o desperdício de papel e energia, contribuindo para a preservação do meio ambiente.',
+        icon: 'tabler:leaf',
+      },
+      {
+        title: 'Estoque de peças',
+        description:
+          'Mantemos um amplo estoque de peças originais e de alta qualidade, agilizando o processo de reparo e minimizando o tempo de inatividade do seu equipamento.',
+        icon: 'tabler:packages',
+      },
+    ]}
+  />
+
+  <PropostaForm whatsapp="Olá! Quero uma proposta de impressoras para varejo." />
+
+  <BlogLatestPosts title="Conteúdos sobre impressão" linkText="Ver todos os posts" count={4} />
+
+  <ContactCTA />
+</Layout>
